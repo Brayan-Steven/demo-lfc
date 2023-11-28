@@ -17,21 +17,31 @@ class RefereeResource extends Resource
 {
     protected static ?string $model = Referee::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-hand-raised';   
+    protected static ?string $navigationLabel = 'Arbitro';
+    protected static ?string $navigationGroup = 'Admin Equipos';
+
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('referee_document')
-                    ->required()
-                    ->maxLength(255),
+                Forms\Components\Select::make('type_document')
+                    ->options([
+                        'Cédula de Ciudadanía' => 'Cédula de Ciudadanía',
+                        'Cédula de Extranjería' => 'Cédula de Extranjería',
+                        'Tarjeta de Identidad' => 'Tarjeta de Identidad',
+                        'pasaporte' => 'Pasaporte',
+                        'nit' => 'NIT',
+                    ])
+                    ->required(),
                 Forms\Components\TextInput::make('referee_name')
                     ->required()
-                    ->maxLength(255),
+                    ->maxLength(255)
+                    ->minLength(10),
                 Forms\Components\TextInput::make('identity_document')
                     ->required()
-                    ->maxLength(255),
+                    ->numeric(),
             ]);
     }
 
@@ -39,7 +49,7 @@ class RefereeResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('referee_document')
+                Tables\Columns\TextColumn::make('type_document')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('referee_name')
                     ->searchable(),
@@ -73,7 +83,8 @@ class RefereeResource extends Resource
             //
         ];
     }
-    
+       
+
     public static function getPages(): array
     {
         return [

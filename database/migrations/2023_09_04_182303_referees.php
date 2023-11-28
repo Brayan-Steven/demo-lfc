@@ -10,7 +10,7 @@ return new class extends Migration
     {
         Schema::create('referees', function (Blueprint $table) {
             $table->id();
-            $table->string('referee_document');
+            $table->string('type_document');
             $table->string('referee_name');
             $table->string('identity_document');
             $table->timestamps();

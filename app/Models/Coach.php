@@ -9,6 +9,7 @@ class Coach extends Model
 {
     protected $fillable = [
         'coach_document',
+        'type_document',
         'coach_name',
         'coach_age',
     ];

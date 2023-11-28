@@ -45,6 +45,8 @@ class FormatResource extends Resource
     {
         return $table
             ->columns([
+                Tables\Columns\TextColumn::make('id')
+                    ->searchable(),
                 Tables\Columns\TextColumn::make('format_name')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('format_file')

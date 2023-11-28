@@ -40,6 +40,8 @@ class StadiumResource extends Resource
     {
         return $table
             ->columns([
+                Tables\Columns\TextColumn::make('id')
+                    ->searchable(),
                 Tables\Columns\TextColumn::make('stadium_name')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('location')

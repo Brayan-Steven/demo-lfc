@@ -7,20 +7,28 @@ use Illuminate\Database\Eloquent\Model;
 
 class Cup extends Model
 {
-    protected $table = 'cups';
+    protected $fillable = [
+        'cup_name',
+        'start_date',
+        'end_date',
+        'trophy_name',
+        'category_name',
+        'sponsor_name',
+        'imge_url',
+    ];
 
     public function category()
     {
-        return $this->belongsTo(Category::class, 'category_id');
+        return $this->belongsTo(Category::class, 'category_name');
     }
-    public function sponsors()
+    public function Sponsor()
     {
-        return $this->morphToMany(Sponsor::class, 'sponsorable');
+        return $this->belongsTo(Sponsor::class, 'sponsor_name');
     }
 
-    public function tournament()
+    public function Trophy()
     {
-        return $this->belongsTo(Tournament::class);
+        return $this->belongsTo(Trophy::class,'trophy_name');
     }
 
 

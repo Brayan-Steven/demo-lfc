@@ -24,10 +24,16 @@ class CoachResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('coach_document')
-                    ->required()
-                    ->numeric()
-                    ->maxLength(255),
+                Forms\Components\Select::make('coach_document')
+                    ->options([
+                        'cc' => 'Cédula de Ciudadanía',
+                        'ce' => 'Cédula de Extranjería',
+                        'ti' => 'Tarjeta de Identidad',
+                        'pasaporte' => 'Pasaporte',
+                        'nit' => 'NIT',
+                        // Agrega más opciones según sea necesario
+                    ])
+                    ->required(),
                 Forms\Components\TextInput::make('coach_name')
                     ->required()
                     ->maxLength(255),

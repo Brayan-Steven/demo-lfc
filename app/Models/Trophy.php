@@ -7,10 +7,21 @@ use Illuminate\Database\Eloquent\Model;
 
 class Trophy extends Model
 {
-    protected $table = 'trophies';
-    public function sponsors()
+    protected $fillable = [
+        'trophy_name',
+        'category_name',
+        'description',
+        'sponsor_name',
+        'imge_url_trophy',
+    ];
+    
+    public function category()
     {
-        return $this->morphToMany(Sponsor::class, 'sponsorable');
+        return $this->belongsTo(category::class, 'category_name');
+    }
+    public function sponsor()
+    {
+        return $this->belongsTo(Sponsor::class, 'sponsor_name');
     }
 
 }

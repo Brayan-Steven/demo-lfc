@@ -7,7 +7,18 @@ use Illuminate\Database\Eloquent\Model;
 
 class game extends Model
 {
-    protected $table = 'games';
+    protected $fillable = [
+        'date',
+        'time',
+        'result',
+        'stadium_name',
+        'referee_name',
+        'league_name',
+        'cup_name',
+        'season_name',
+        'trophy_name',
+        'municipality_name',
+    ];
 
     public function stadium()
     {
@@ -38,9 +49,9 @@ class game extends Model
     {
         return $this->belongsTo(Trophy::class, 'trophy_name');
     }
-    public function municipalities()
+    public function Municipality()
 {
-    return $this->belongsTo(Municipalities::class, 'municipality_name');
+    return $this->belongsTo(Municipality::class, 'municipality_name');
 }
 
 }

@@ -145,6 +145,7 @@ class TeamResource extends Resource
                     ->required(),
                 Forms\Components\FileUpload::make('imge_url')
                     ->columnSpan('full')
+                    // ->multiple()
                     ->image()
                     ->imageEditor()
                     ->required(),
@@ -170,7 +171,7 @@ class TeamResource extends Resource
                 Tables\Columns\ImageColumn::make('imge_url')
                     ->circular()
                     ->stacked()
-                    ->limit(3)
+                    // ->limit(3)
                     ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()

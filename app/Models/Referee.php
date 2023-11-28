@@ -7,5 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Referee extends Model
 {
-    protected $table = 'referees';
+    protected $fillable = [
+        'type_document',
+        'referee_name',
+        'identity_document',
+    ];
 }

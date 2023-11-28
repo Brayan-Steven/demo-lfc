@@ -16,13 +16,18 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 class MunicipalityResource extends Resource
 {
     protected static ?string $model = Municipality::class;
+    protected static ?string $navigationLabel = 'Municipios';
+    protected static ?string $navigationGroup = 'Regiones';
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
     public static function form(Form $form): Form
     {
         return $form
-            ->schema([
+        ->schema([
+                Forms\Components\TextInput::make('municipality_name')
+                    ->required()
+                    ->maxLength(255),
                 Forms\Components\Select::make('subregion_name')
                     ->relationship('Subregion','subregion_name')
                     ->createOptionForm([
@@ -32,9 +37,6 @@ class MunicipalityResource extends Resource
                         ->maxLength(255),
                     ])
                     ->required(),
-                Forms\Components\TextInput::make('municipality_name')
-                    ->required()
-                    ->maxLength(255),
             ]);
     }
 

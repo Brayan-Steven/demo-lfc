@@ -43,6 +43,8 @@ class SeasonResource extends Resource
     {
         return $table
             ->columns([
+                Tables\Columns\TextColumn::make('id')
+                    ->searchable(),  
                 Tables\Columns\TextColumn::make('season_name')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('start_season')

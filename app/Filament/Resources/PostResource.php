@@ -23,25 +23,23 @@ class PostResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('name')
-                    ->required(),
-                Forms\Components\Select::make('season_name')
-                    ->Relationship('season','season_name')
-                    ->required(),
                 Forms\Components\TextInput::make('title')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\RichEditor::make('content')
-                    ->required()
-                    ->maxLength(65535)
-                    ->columnSpanFull(),
-                Forms\Components\DateTimePicker::make('match_date'),
+                Forms\Components\Select::make('season_name')
+                    ->Relationship('season','season_name')
+                    ->required(),
+                Forms\Components\DatePicker::make('match_date'),
                 Forms\Components\TextInput::make('type')
                     ->required()
                     ->maxLength(255),
                 Forms\Components\Select::make('team_name')
-                    ->Relationship('teams','team_name')
+                    ->Relationship('team','team_name')
                     ->required(),
+                Forms\Components\RichEditor::make('content')
+                    ->required()
+                    ->maxLength(65535)
+                    ->columnSpanFull(),
             ]);
     }
 
