@@ -17,7 +17,7 @@ return new class extends Migration
             $table->text('content');
             $table->unsignedBigInteger('name');
             $table->unsignedBigInteger('season_name');
-            $table->unsignedBigInteger('name');
+            // $table->unsignedBigInteger('name');
             $table->unsignedBigInteger('category_name');
             $table->string('body');
             $table->dateTime('match_date');
@@ -27,8 +27,8 @@ return new class extends Migration
 
             $table->foreign('name')->references('id')->on('users');
             $table->foreign('season_name')->references('id')->on('seasons');
-            $table->foreign('category_name')->references('id')->on('category');
-            $table->foreign('season_name')->references('id')->on('seasons');
+            $table->foreign('category_name')->references('id')->on('categories');
+            // $table->foreign('season_name')->references('id')->on('seasons');
             // Agrega relaciones adicionales según sea necesario.
         });
     }
