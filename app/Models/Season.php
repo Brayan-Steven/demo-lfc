@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Season extends Model
 {
-<<<<<<< HEAD
     protected $fillable = [
         'season_name',
         'start_season',
@@ -25,7 +24,4 @@ class Season extends Model
     {
         return base64_decode($value);
     }
-=======
-    use HasFactory;
->>>>>>> 1b7866d0e16f03a7880b3ca721177f01cf9060c2
 }

@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Sponsor extends Model
 {
-<<<<<<< HEAD
     protected $fillable = [
         'sponsor_name',
         'contact',
@@ -35,7 +34,4 @@ class Sponsor extends Model
         return $this->morphedByMany(Cup::class, 'sponsor_name');
     }
 
-=======
-    use HasFactory;
->>>>>>> 1b7866d0e16f03a7880b3ca721177f01cf9060c2
 }
