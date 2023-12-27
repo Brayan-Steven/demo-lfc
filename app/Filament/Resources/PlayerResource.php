@@ -19,7 +19,7 @@ class PlayerResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-user-group';
     protected static ?string $navigationLabel = 'Jugadores';
-    protected static ?string $navigationGroup = 'Admin Equipos';
+    protected static ?string $navigationGroup = 'Personal';
 
 
     public static function form(Form $form): Form
