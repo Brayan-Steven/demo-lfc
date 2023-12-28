@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class team extends Model
-<<<<<<< HEAD
 { 
     protected $fillable= [
         'team_name',
@@ -38,8 +37,3 @@ class team extends Model
 
 }
  
-=======
-{
-    use HasFactory;
-}
->>>>>>> 1b7866d0e16f03a7880b3ca721177f01cf9060c2
