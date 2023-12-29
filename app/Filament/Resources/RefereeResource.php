@@ -19,7 +19,7 @@ class RefereeResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-hand-raised';   
     protected static ?string $navigationLabel = 'Arbitro';
-    protected static ?string $navigationGroup = 'Admin Equipos';
+    protected static ?string $navigationGroup = 'Personal';
 
 
     public static function form(Form $form): Form
