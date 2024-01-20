@@ -1,6 +1,6 @@
 <?php
 
-use Illuminate\Routing\Route as RoutingRoute;
+use App\Livewire\Home;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeLFC;
 use App\Http\Controllers\formats;
@@ -17,9 +17,8 @@ use App\Http\Controllers\formats;
 |
 */
 
-Route::get('/', [HomeLFC::class,'post']);
-// Route::get('/formats', [formats::class,'resolution']);
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-
-
-Route::get('/formats', [formats::class,'resolution'])->name('');
+Route::get('/', Home::class);
