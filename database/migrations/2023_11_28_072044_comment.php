@@ -11,7 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
+        Schema::create('comment', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('autor_id');
+            $table->foreign('autor_id')->references('id')->on('users');
+
+        });
     }
 
     /**
@@ -20,5 +25,7 @@ return new class extends Migration
     public function down(): void
     {
         //
+        Schema::dropIfExists('comment');
+
     }
 };

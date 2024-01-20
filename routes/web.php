@@ -1,6 +1,10 @@
 <?php
 
+use Illuminate\Routing\Route as RoutingRoute;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeLFC;
+use App\Http\Controllers\formats;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +17,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [HomeLFC::class,'post']);
+// Route::get('/formats', [formats::class,'resolution']);
+
+
+
+Route::get('/formats', [formats::class,'resolution'])->name('');

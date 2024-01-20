@@ -33,7 +33,7 @@ class SeasonResource extends Resource
                 Forms\Components\DatePicker::make('end_season')
                     ->required(),
                 Forms\Components\FileUpload::make('img_url_season')
-                    ->image()->preserveFilenames()
+                    // ->image()->preserveFilenames()
                     ->imageEditor()
                     ->required(),
             ]);

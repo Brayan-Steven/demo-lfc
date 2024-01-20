@@ -11,7 +11,7 @@ return new class extends Migration
         Schema::create('coaches', function (Blueprint $table) {
             $table->id();
             $table->integer('coach_document');
-            $table->integer('type_document');
+            $table->string('type_document');
             $table->string('coach_name');
             $table->integer('coach_age');
             $table->timestamps();
