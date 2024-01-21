@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Routing\Route as RoutingRoute;
+use App\Livewire\Home;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeLFC;
 use App\Http\Controllers\formats;

@@ -24,7 +24,4 @@ class Trophy extends Model
         return $this->belongsTo(Sponsor::class, 'sponsor_name');
     }
 
-
-    use HasFactory;
-
 }
