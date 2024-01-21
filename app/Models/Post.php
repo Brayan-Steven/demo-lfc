@@ -33,6 +33,6 @@ class Post extends Model
     }
     public function contact()
     {
-        return $this->belongsTo(contacts::class, 'contacts_name');
+        return $this->belongsTo(contact::class, 'contacts_name');
     }
 }

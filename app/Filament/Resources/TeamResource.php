@@ -95,17 +95,21 @@ class TeamResource extends Resource
                 Forms\Components\Select::make('coach_name')
                     ->relationship('Coach','coach_name')
                     ->createOptionForm([
-                            Forms\Components\TextInput::make('coach_document')
-                                ->required()
-                                ->numeric()
-                                ->maxLength(255),
-                            Forms\Components\TextInput::make('coach_name')
-                                ->required()
-                                ->maxLength(255),
-                            Forms\Components\TextInput::make('coach_age')
-                                ->required()
-                                ->numeric()
-                                ->maxLength(255),
+                        Forms\Components\Select::make('coach_document')
+                        ->options([
+                            'cc' => 'Cédula de Ciudadanía',
+                            'ce' => 'Cédula de Extranjería',
+                            'ti' => 'Tarjeta de Identidad',
+                            'pasaporte' => 'Pasaporte',
+                            'nit' => 'NIT',
+                        ])
+                        ->required(),
+                    Forms\Components\TextInput::make('coach_name')
+                        ->required()
+                        ->maxLength(255),
+                    Forms\Components\TextInput::make('coach_age')
+                        ->required()
+                        ->numeric(),
                         ])
                     ->required(),
                     Forms\Components\Select::make('stadium_name')
