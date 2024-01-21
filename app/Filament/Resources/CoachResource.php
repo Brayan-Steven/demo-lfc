@@ -39,8 +39,7 @@ class CoachResource extends Resource
                     ->maxLength(255),
                 Forms\Components\TextInput::make('coach_age')
                     ->required()
-                    ->numeric()
-                    ->maxLength(255),
+                    ->numeric(),
             ]);
     }
 
