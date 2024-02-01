@@ -12,6 +12,8 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Forms\Set;
+use Illuminate\Support\Str;
 
 class PostResource extends Resource
 {
@@ -26,20 +28,29 @@ class PostResource extends Resource
             ->schema([
                 Forms\Components\TextInput::make('title')
                     ->required()
+                    // ->live(onBlur: true)
+                    // ->afterStateUpdated(fn (Set $set, ?string $state)=> $set('slug', Str::slug($state)))
+                    ->maxLength(255),
+                Forms\Components\TextInput::make('slug')
+                    // ->disabled()
                     ->maxLength(255),
                 Forms\Components\Select::make('season_name')
-                    ->Relationship('season','season_name')
-                    ->required(),
+                    ->Relationship('season','season_name'),
                 Forms\Components\DatePicker::make('match_date'),
                 Forms\Components\TextInput::make('type')
-                    ->required()
                     ->maxLength(255),
                 Forms\Components\Select::make('team_name')
-                    ->Relationship('team','team_name')
+                    ->Relationship('team','team_name'),
+                Forms\Components\Select::make('category_posts')
+                    ->Relationship('categoryPost','category_posts')
                     ->required(),
-                Forms\Components\RichEditor::make('content')
+                Forms\Components\FileUpload::make('imge_url')
+                    ->image()
+                    ->multiple()
+                    ->imageEditor()
+                    ->required(),
+                Forms\Components\RichEditor::make('body')
                     ->required()
-                    ->maxLength(65535)
                     ->columnSpanFull(),
             ]);
     }

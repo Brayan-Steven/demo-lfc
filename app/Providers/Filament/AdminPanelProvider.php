@@ -19,6 +19,8 @@ use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use Althinect\FilamentSpatieRolesPermissions\FilamentSpatieRolesPermissionsPlugin;
+use Filament\Contracts\Plugin;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -58,6 +60,19 @@ class AdminPanelProvider extends PanelProvider
                 DisableBladeIconComponents::class,
                 DispatchServingFilamentEvent::class,
             ])
+            // Plugin para media 
+            ->plugins([
+                \Awcodes\Curator\CuratorPlugin::make()
+                    ->label('Media')
+                    ->pluralLabel('Media')
+                    ->navigationIcon('heroicon-o-photo')
+                    ->navigationGroup('Content')
+                    ->navigationSort(3)
+                    ->navigationCountBadge()
+            ])
+
+            // Roles del paqueire de Spatie permisson
+            // ->plugin(FilamentSpatieRolesPermissionsPlugin::make())
             ->authMiddleware([
                 Authenticate::class,
             ]);
