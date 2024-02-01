@@ -13,9 +13,12 @@ return new class extends Migration
     {
         Schema::create('comment', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('autor_id');
-            $table->foreign('autor_id')->references('id')->on('users');
-
+            $table->unsignedBigInteger('posts');
+            $table->foreign('posts')->references('id')->on('posts');
+            $table->string('contacts_name');
+            $table->string('contacts_email');
+            $table->string('contacts_phone');
+            $table->string('contacts_message');
         });
     }
 

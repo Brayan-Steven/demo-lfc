@@ -13,21 +13,23 @@ return new class extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
+            $table->string('title')->nullable();
             $table->string('body');
             $table->string('type'); // Ejemplo: "Partido", "Juego", "Liga", etc.
             $table->dateTime('match_date');
-            $table->unsignedBigInteger('team_id'); // Si es relevante para la publicación.
+            $table->unsignedBigInteger('team_id')->nullable(); // Si es relevante para la publicación.
             $table->string('slug');
-            $table->unsignedBigInteger('autor_id');
-            $table->unsignedBigInteger('season_name');
+            $table->unsignedBigInteger('category_posts');
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('season_name')->nullable();
             // $table->unsignedBigInteger('name');
-            $table->unsignedBigInteger('category_name');
+            $table->unsignedBigInteger('category_name')->nullable();
             $table->timestamps();
-            $table->foreign('autor_id')->references('id')->on('users');
+            $table->foreign('category_posts')->references('id')->on('category_posts');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('season_name')->references('id')->on('seasons');
             $table->foreign('category_name')->references('id')->on('categories');
-            $table->string('img_url');
+            $table->string('img_url')->nullable();
             // $table->foreign('season_name')->references('id')->on('seasons');
             // Agrega relaciones adicionales según sea necesario.
         });
