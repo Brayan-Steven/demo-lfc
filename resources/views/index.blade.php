@@ -57,8 +57,9 @@
             </div>
     
             <!-- Banner con varias imágenes -->
-            <div class="mt-8">
-                <h1>NUESTROS ALIADOS</h1>
+            <h1>NUESTROS ALIADOS</h1><br>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-3 mt-8">
                 <img src="{{ asset('img/logo.png') }}" alt="Banner" class="">
                 <img src="{{ asset('img/logo.png') }}" alt="Banner" class="">
                 <img src="{{ asset('img/logo.png') }}" alt="Banner" class="">
@@ -81,7 +82,7 @@
             </div>
         </div>
         
-        <livewire:contacto/>
+        {{-- <livewire:contacto/> --}}
         
         @livewireScripts
         <livewire:Navegation.footer/>

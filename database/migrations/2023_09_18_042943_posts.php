@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('title')->nullable();
             $table->string('body');
-            $table->string('type'); // Ejemplo: "Partido", "Juego", "Liga", etc.
+            $table->string('game_type'); // Ejemplo: "Partido", "Juego", "Liga", etc.
             $table->dateTime('match_date');
             $table->unsignedBigInteger('team_id')->nullable(); // Si es relevante para la publicación.
             $table->string('slug');
