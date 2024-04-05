@@ -28,16 +28,18 @@ class PostResource extends Resource
             ->schema([
                 Forms\Components\TextInput::make('title')
                     ->required()
-                    // ->live(onBlur: true)
-                    // ->afterStateUpdated(fn (Set $set, ?string $state)=> $set('slug', Str::slug($state)))
+                    ->live(onBlur: true)
+                    ->afterStateUpdated(fn (Set $set, ?string $state)=> $set('slug', Str::slug($state)))
                     ->maxLength(255),
                 Forms\Components\TextInput::make('slug')
-                    // ->disabled()
+                    // ->live(onBlur: true)
+                    // ->afterStateUpdated(fn (Set $set, ?string $state) => $set( 'slug', Str::slug($state)))
+                    ->disabled()
                     ->maxLength(255),
                 Forms\Components\Select::make('season_name')
                     ->Relationship('season','season_name'),
                 Forms\Components\DatePicker::make('match_date'),
-                Forms\Components\TextInput::make('type')
+                Forms\Components\TextInput::make('game_type')
                     ->maxLength(255),
                 Forms\Components\Select::make('team_name')
                     ->Relationship('team','team_name'),
